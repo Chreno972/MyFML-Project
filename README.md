@@ -17,7 +17,11 @@ Chapitre 4 [Le code](#le-code)
 >
 Chapitre 5 [Documentation](#documentation-et-utilisation)
 >
-chapitre 6 [Visualier les workspaces](#Visualisation)
+chapitre 6 [Visualier les workspaces](#visualisation)
+>
+chapitre 7 [Demo](#demo)
+
+
 
 ---
 [top](#sommaire)
@@ -63,9 +67,9 @@ Ouvrir un workspace sélectionné dans une fenêtre vscode
 
 Maintenant que ma structure MVC est faite, si je veux améliorer mon code, mes classes sont déjà faites, et le comportement restera toujours le même. Je vais pouvoir ajouter des classes, par exemple, ici, j'ai une classe workspaces
 qui permet d'ouvrir un dossier de travail dans vscode. 
-Je peux tout à fait ouvrir directement des dossiers dans windows
-
+Je peux tout à fait ouvrir directement des dossiers dans windows, des fichiers word...
 Je n'ai pas à toucher à la base de données qui est déjà en place et je n'aurais pas à créer d'autres fichiers de scripts, tout sera contenu dans ces 3 fichiers.
+Je pourrais aussi créer un script qui fetch tous les dossiers au lancement de main.py afin d'enregister automatiquement les chemins et workspaces qui ne sont pas encore présent dans la base données.
 
 ---
 [top](#sommaire)
@@ -248,3 +252,16 @@ Vous pouvez accéder à un rendu visuel de vos WorkSpaces via le navigateur inte
 Dans votre editeur de texte, il vous suffit de cliquer sur l'index html, et l'ouvrir avec live server.
 Si vous n'avez pas l'option ouvrir avec live server, je vous laisse vous documenter selon l'éditeur de
 code que vous utilisez. Néanmoins, vous avez la possibité de simplement installer une extension si vous utilisez VS code. Je dis ça... ;) (précision => je déteste cette expression 🤮).
+
+---
+
+## Demo
+
+**Make a choice**
+![choix](./assets/images/choix.PNG)
+
+**Database JSON**
+![choix](./assets/images/database.PNG)
+
+**Display in Browser**
+![choix](./assets/images/version_html.PNG)

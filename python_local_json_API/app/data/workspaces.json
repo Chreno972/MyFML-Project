@@ -1,11 +1,251 @@
 {
     "workspaces": {
         "1": {
-            "Projet": "first project",
+            "Categorie": "Projet Perso",
+            "Chemin": "../Projets/Projets",
+            "Projet": "Projet1",
+            "Technologies": "JavaScript",
+            "Workspace_name": "projet_1",
+            "Etat": "en cours"
+        },
+        "3": {
             "Categorie": "Projet Pro",
+            "Chemin": "../Projets/Projets/Marcassin_des_bois",
+            "Projet": "Petit Marcassin salé",
+            "Technologies": "Python",
+            "Workspace_name": "marcassin_salé_le_retour",
+            "Etat": "en cours"
+        },
+        "4": {
+            "Categorie": "Projet Pro",
+            "Chemin": "../Projets/Projets/la_vie_en_rouge",
+            "Projet": "La vie en rouge",
+            "Technologies": "Python",
+            "Workspace_name": "wp_lver",
+            "Etat": "termine"
+        },
+        "5": {
+            "Categorie": "Projet Pro",
+            "Chemin": "../Projets/Projets/Projet_rexta",
+            "Projet": "Rexta",
+            "Technologies": "Python",
+            "Workspace_name": "rexta",
+            "Etat": "en suspens"
+        },
+        "6": {
+            "Categorie": "Projet Pro",
+            "Chemin": "../Projets/Projets/Gulliver",
+            "Projet": "Gulliver",
+            "Technologies": "Pyhton",
+            "Workspace_name": "gulliver",
+            "Etat": "termine"
+        },
+        "7": {
+            "Categorie": "Projet Pro",
+            "Chemin": "../Projets/Projets/next_gen",
+            "Projet": "Next Gen",
+            "Technologies": "Python",
+            "Workspace_name": "Next_gen",
+            "Etat": "termine"
+        },
+        "8": {
+            "Categorie": "Apprentissage",
+            "Chemin": "../Apprentissages/learning_projects",
+            "Projet": "2 == 30 ou pas ?",
+            "Technologies": "Python",
+            "Workspace_name": "un_et_un_font_trente",
+            "Etat": "en cours"
+        },
+        "9": {
+            "Categorie": "Apprentissage",
+            "Chemin": "../Apprentissages/learning_projects",
+            "Projet": "React Course",
+            "Technologies": "React JS",
+            "Workspace_name": "Complete_React_Course",
+            "Etat": "en suspens"
+        },
+        "10": {
+            "Projet": "Web Dev C",
+            "Categorie": "Apprentissage",
+            "Technologies": "JavaScript",
+            "Chemin": "../Apprentissages/learning_projects",
+            "Workspace_name": "Complete_Web_Dev_Course",
+            "Etat": "en suspens"
+        },
+        "11": {
+            "Projet": "Py Job Tests",
+            "Categorie": "Apprentissage",
+            "Technologies": "Python",
+            "Chemin": "../Apprentissages/learning_projects",
+            "Workspace_name": "python_job_test",
+            "Etat": "en suspens"
+        },
+        "13": {
+            "Projet": "YouCodeJS V1",
+            "Categorie": "Projet Perso",
             "Technologies": "JavaScript",
             "Chemin": "../Projets/Projets",
-            "Workspace_name": "first_project",
+            "Workspace_name": "Youcodejs.v.1.0",
+            "Etat": "termine"
+        },
+        "14": {
+            "Projet": "Sastre L V1",
+            "Categorie": "Projet Perso",
+            "Technologies": "JS - PHP",
+            "Chemin": "../Projets/Projets",
+            "Workspace_name": "sastre_london_v.1.0",
+            "Etat": "termine"
+        },
+        "15": {
+            "Projet": "OTR JS V1",
+            "Categorie": "Projet Perso",
+            "Technologies": "JavaScript",
+            "Chemin": "../Projets/Projets",
+            "Workspace_name": "OTRJS_v.1.0",
+            "Etat": "termine"
+        },
+        "16": {
+            "Projet": "My CV V1",
+            "Categorie": "Projet Perso",
+            "Technologies": "JavaScript",
+            "Chemin": "../Projets/Projets",
+            "Workspace_name": "MYCV_v.1.0",
+            "Etat": "termine"
+        },
+        "18": {
+            "Projet": "MD Launcher",
+            "Categorie": "Notes taking",
+            "Technologies": "Markdown/word",
+            "Chemin": "../../Formations-projets",
+            "Workspace_name": "md_files_launcher",
+            "Etat": "termine"
+        },
+        "20": {
+            "Projet": "OC P5 C 2",
+            "Categorie": "Projet Pro",
+            "Technologies": "JavaScript",
+            "Chemin": "../Projets/Projets/Open_Classrooms_Projects/Projet-5",
+            "Workspace_name": "OC_P5_Course2",
+            "Etat": "termine"
+        },
+        "21": {
+            "Projet": "OC P5 C 3",
+            "Categorie": "Projet Pro",
+            "Technologies": "JavaScript",
+            "Chemin": "../Projets/Projets/Open_Classrooms_Projects/Projet-5",
+            "Workspace_name": "OC_P5_Course3",
+            "Etat": "termine"
+        },
+        "22": {
+            "Projet": "OC P5 C 4",
+            "Categorie": "Projet Pro",
+            "Technologies": "JavaScript",
+            "Chemin": "../Projets/Projets/Open_Classrooms_Projects/Projet-5",
+            "Workspace_name": "OC_P5_Course4",
+            "Etat": "termine"
+        },
+        "23": {
+            "Projet": "OC P5 Project",
+            "Categorie": "Projet Pro",
+            "Technologies": "JavaScript",
+            "Chemin": "../Projets/Projets/Open_Classrooms_Projects/Projet-5",
+            "Workspace_name": "OC_P5_Project",
+            "Etat": "termine"
+        },
+        "24": {
+            "Projet": "OC P7 Project",
+            "Categorie": "Projet Pro",
+            "Technologies": "Python",
+            "Chemin": "../Projets/Projets/Open_Classrooms_Projects/Projet-7",
+            "Workspace_name": "OC_P7_Project",
+            "Etat": "en cours"
+        },
+        "25": {
+            "Projet": "OC P7 C 1",
+            "Categorie": "Projet Pro",
+            "Technologies": "Python",
+            "Chemin": "../Projets/Projets/Open_Classrooms_Projects/Projet-7",
+            "Workspace_name": "OC_P7_Course1",
+            "Etat": "termine"
+        },
+        "26": {
+            "Projet": "OC P7 C 2",
+            "Categorie": "Projet Pro",
+            "Technologies": "Python",
+            "Chemin": "../Projets/Projets/Open_Classrooms_Projects/Projet-7",
+            "Workspace_name": "OC_P7_Course2",
+            "Etat": "termine"
+        },
+        "27": {
+            "Projet": "Python OOP",
+            "Categorie": "Apprentissage",
+            "Technologies": "Python",
+            "Chemin": "../Apprentissages/learning_projects",
+            "Workspace_name": "FCC_Python_OOP",
+            "Etat": "en cours"
+        },
+        "28": {
+            "Projet": "Django C 1",
+            "Categorie": "Apprentissage",
+            "Technologies": "Python, Django",
+            "Chemin": "../Apprentissages/learning_projects",
+            "Workspace_name": "django_web_frameworks",
+            "Etat": "termine"
+        },
+        "29": {
+            "Projet": "Machine Learn",
+            "Categorie": "Apprentissage",
+            "Technologies": "Python",
+            "Chemin": "../Apprentissages/learning_projects",
+            "Workspace_name": "machine_learning",
+            "Etat": "en cours"
+        },
+        "30": {
+            "Projet": "Technical Tests",
+            "Categorie": "Projet Perso",
+            "Technologies": "Python",
+            "Chemin": "../Apprentissages/Repetitive_learnings",
+            "Workspace_name": "Technical_tests_trainings",
+            "Etat": "en cours"
+        },
+        "31": {
+            "Projet": "Physarum V1",
+            "Categorie": "Projet Perso",
+            "Technologies": "Python",
+            "Chemin": "../Projets/Projets",
+            "Workspace_name": "Physarum_v.1.0",
+            "Etat": "en suspens"
+        },
+        "32": {
+            "Projet": "OTR Academy",
+            "Categorie": "Projet Perso",
+            "Technologies": "JavaScript",
+            "Chemin": "../Projets/Projets",
+            "Workspace_name": "On_the_road_js_v2",
+            "Etat": "en suspens"
+        },
+        "33": {
+            "Projet": "My CV V2",
+            "Categorie": "Projet Perso",
+            "Technologies": "JavaScript",
+            "Chemin": "../Projets/Projets",
+            "Workspace_name": "Mycv_v.2.0",
+            "Etat": "en suspens"
+        },
+        "34": {
+            "Projet": "Django C 2",
+            "Categorie": "Apprentissage",
+            "Technologies": "Python, Django",
+            "Chemin": "../Apprentissages/learning_projects",
+            "Workspace_name": "Create_resume_with_django",
+            "Etat": "en cours"
+        },
+        "36": {
+            "Projet": "OC P9 C 1",
+            "Categorie": "Projet Pro",
+            "Technologies": "Python, Django",
+            "Chemin": "../Projets/Projets/Open_Classrooms_Projects/Projet-9",
+            "Workspace_name": "OC_P9_Course1",
             "Etat": "en cours"
         }
     }
