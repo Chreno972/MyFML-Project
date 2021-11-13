@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/ico" sizes="32x32" href="./assets/images/folder_file_icon_193935.ico">
+    <link rel="stylesheet" href="./app/css/main.css">
+    <title style="font-family: 'Roboto', sans-serif;">MyFML</title>
+</head>
+<body>
+    <section id="my_all_container">
+        <h1 id="title">My Folders My Logic</h1>
+        <div id="les_rappels">
+            <p class="rapports">EN COURS : <span id="rapport_en_cours"></span></p>
+            <p class="rapports">EN SUSPENS : <span id="rapport_en_suspens"></span></p>
+            <p class="rapports">TERMINÉS : <span id="rapport_termine"></span></p>
+        </div>
+        <div id="my_workspaces_container">
+            <div id="projets_en_cours">
+                <h2 class="section_title">Projets en cours</h2>
+                <div id="running_projects_container" class="projects_subcontainer"></div>
+            </div>
+            <div id="projets_en_suspens">
+                <h2 class="section_title">Projets en suspens</h2>
+                <div id="paused_projects_container" class="projects_subcontainer"></div>
+            </div>
+            <div id="projets_termines">
+                <h2 class="section_title">Projets terminés</h2>
+                <div id="finished_projects_container" class="projects_subcontainer"></div>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="./fetch_workspace_data.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>

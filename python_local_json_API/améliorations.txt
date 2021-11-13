@@ -1,0 +1,5 @@
+
+- Ouvrir un dossier pour travailler avec les fichier sans passer par vscode
+- Ne pas être obligé de relancer le script après avoir créé et mis à jour un dossier si je souhaite effacer
+- Ne pas être obligé de relancer le script après avoir ouvert un dossier dans vscode
+

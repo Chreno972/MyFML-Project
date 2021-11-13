@@ -1,0 +1,12 @@
+{
+    "workspaces": {
+        "1": {
+            "Projet": "first project",
+            "Categorie": "Projet Pro",
+            "Technologies": "JavaScript",
+            "Chemin": "../Projets/Projets",
+            "Workspace_name": "first_project",
+            "Etat": "en cours"
+        }
+    }
+}
