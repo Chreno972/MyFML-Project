@@ -258,10 +258,13 @@ code que vous utilisez. Néanmoins, vous avez la possibité de simplement instal
 ## Demo
 
 **Make a choice**
+
 ![choix](./assets/images/choix.PNG)
 
 **Database JSON**
+
 ![choix](./assets/images/database.PNG)
 
 **Display in Browser**
+
 ![choix](./assets/images/version_html.PNG)
