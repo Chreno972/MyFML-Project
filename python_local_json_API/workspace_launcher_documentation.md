@@ -1,8 +1,4 @@
 # Projet MyFML
-
-## Liens Web
-exporter un [JSON en CSV](https://www.journaldev.com/45372/json-to-csv-python)
-
 ## Les concepts expliqués
 [la classe tinydb](#la-classe-tinydb)
 
@@ -24,9 +20,9 @@ J'ai crée ce projet pour plusieurs raisons.
 - Lors de mes transferts de sauvegarde vers mes disques durs externes ou dans le cloud,
   comme mes support de destination contenaient d'autres dossiers non attenants aux fichiers
   à transférer, je devais donc parcourir plusieurs dossiers et cela pouvait certaines fois me
-  faire perdre la tête (je fais partie des personnes qui ont du mal à s'organiser).
+  faire perdre la tête.
 - Je suis en cours de formation professionnelle et personnelle, et de surcroit, dans le monde de la programmation.
-  Du coup, j'ai beaucoup de choses à revoir, travailler, présenter, chercher etc. et cela commençait à devenir un
+  Du coup, j'ai beaucoup de choses à revoir, travailler, présenter, chercher etc. et cela commence à devenir un
   casse tête pour ranger mes dossier de manière optimale.
 - Je dois réaliser plusieurs projets professionnels, m'entrainer selon ce que j'apprends, effectuer des actions
   chaque jours (sport, anglais, maths) et finalement m'auto former sur des tutoriels eux aussi classés.
@@ -35,9 +31,9 @@ Mon projet permet donc
 - d'ouvrir un workspace, directement dans mon éditeur de code VSCode.
 Cela m'évite de chercher le dossier cliquer droit dessus et ouvrir dans vscode
 - de bénéficier d'une structure facile d'accès et contenant tous les sous dossiers nécessaires à un classement le plus exhaustif possible.
-- de lancer le fichier html depuis l' éditeur de code s'il le permet afin d'avoir un visuel sur les projets en cours, en suspens, ou terminés. En revanche, le CRUD s'effectue côté Python, en  lançant python main.py.
+- de lancer le fichier html depuis l' éditeur de code s'il le permet afin d'avoir un visuel sur les projets en cours, en suspens, ou terminés. En revanche, le CRUD s'effectue côté console, en  lançant python main.py.
 
-Là où ce projet est efficace, c'est que j'ai aussi des workspaces contenant des formations sous forme de projets à réaliser indépendamment de ceux de ma formation actuelle. J'ai aussi des projets personnels en cours dont celui-ci, pour lesquels j'ai aussi crée des workspaces. Tous ces workspaces sont situés dans des dossiers ou sous-dossiers différents. Je peux être amené à travailler sur 2 à trois projets différents par jour, selon mon emploi du temps. Ce qui peut au bout d'un certain temps et d'un certain nombre de workspaces, devenir un casse_tête.
+Là où ce projet est efficace, c'est que j'ai aussi des workspaces contenant des formations sous forme de projets à réaliser indépendamment de ceux de ma formation actuelle. J'ai aussi des projets personnels en cours dont celui-ci, pour lesquels j'ai aussi crée des workspaces. Tous ces workspaces sont situés dans des dossiers ou sous-dossiers différents. Je peux être amené à travailler sur 2 à trois projets différents par jour, selon mon emploi du temps. Ce qui peut au bout d'un certain temps et d'un certain nombre de workspaces, devenir un casse_tête en termes de recherches.
 
 Finalement tout cela, réduit considérablement mon stress lié à la recherche de dossiers dans tous les sens, me permet de sereinement et rapidement switcher d'un workspace à l'autre, et me libère d'une raison de procrastiner ou d' abandonner parmi tant d'autres.
 
@@ -61,9 +57,7 @@ au lancement du programme. <3
 
 Maintenant que ma structure MVC est faite, si je veux améliorer mon code, mes classes sont déjà faites, et le comportement restera toujours le même. Je vais pouvoir ajouter des classes, par exemple, ici, j'ai une classe workspaces
 qui permet d'ouvrir un dossier de travail dans vscode. 
-Je peux tout à fait ouvrir directement des dossiers dans windows
-
-Je n'ai pas à toucher à la base de données qui est déjà en place et je n'aurais pas à créer d'autres fichiers de scripts, tout sera contenu dans ces 3 fichiers.
+Je peux tout à fait ouvrir directement des dossiers dans windows, des fichiers md etc... avec ce programme.
 
 ---
 [top](#sommaire)
