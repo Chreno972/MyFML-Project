@@ -4,11 +4,17 @@
 
 ## Sommaire
 Chapitre 1 [L'idée](#l'idée)
+>
 Chapitre 2 [Possibilités](#possibilités)
+>
 Chapitre 3 [Améliorations possibles](#aller-plus-loin)
+>
 Chapitre 4 [La structure](#la-structure)
+>
 Chapitre 5 [Le code](#le-code)
+>
 Chapitre 6 [Documentation](#documentation-et-utilisation)
+>
 chapitre 7 [Visualier les workspaces](#visualisation)
 
 ---
