@@ -260,9 +260,7 @@ from tinydb import TinyDB, Query # importation des modules de la librairie
 Cette nouvelle fonction au lancement de main.py, utilise un algorithme qui parcours 
 les dossiers Apprentissages et Projets à la recherche de workspaces ne figurant pas dans
 la base de données. Si un dossier entre dans ce critère, l'algorithme crée un workspace
-et toutes ses informations, à partir du nom du dossier concerné. Cette fonction me rend
-vraiment fier, car j'ai crée une automatisation très pratique et parceque j'ai utilisé une
-compétence enseignée dans aucun tuto ou cours, LA JUGEOTTE <3 
+et toutes ses informations, à partir du nom du dossier concerné. <3 
 
 > Lorsque vous arrivez au menu principal, vous avez plusieurs possibilités:
 
