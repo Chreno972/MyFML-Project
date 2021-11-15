@@ -1,11 +1,6 @@
 """ Imports de bibliothèques natives Python """
 from time import sleep as sl
-from os import mkdir as mkd
-from os import rename as rnm
-from os import rmdir as rmd
-from os import system as sys
-from os import chdir as chd
-import webbrowser
+import os
 import csv
 
 """ Imports de modules crées """
@@ -35,7 +30,7 @@ class Controller(Workspace):
 
     """ les chemins principaux dans lesquels on crée les workspaces """
 
-    LEARNING_PATH = "../Apprentissages/learning_projects"
+    LEARNING_PATH = "../Apprentissages/Learning_projects"
     PROJECTS_PATH = "../Projets/Projets"
 
     def __init__(self):
@@ -58,13 +53,13 @@ class Controller(Workspace):
         elif result == "5":
             self.export_json_to_csv()
         elif result == "6":
-            sys("exit()")
+            os.system("exit()")
         else:
             print()
             print("Recommencez et entrez uniquement un nombre entier répertorié")
             print()
             sl(2)
-            sys("cls")
+            os.system("cls")
             Controller().main_choice()
 
     """ METHODS TO INCORPORATE """
@@ -77,7 +72,6 @@ class Controller(Workspace):
         [indexes]: va recevoir l'index de chaque ligne du tableau pandas
         """
         data = []
-        d = []
         indexes = []
         for i in range(len(workspaces_table)):
             i = "WORKSPACE"
@@ -114,7 +108,7 @@ class Controller(Workspace):
             ],
         )
         print()
-        print(players_list.sort_values(by=["ETAT"], ascending=True))
+        print(players_list.sort_values(by=["ETAT"], ascending=False))
         print()
 
     def access_a_workspace(self):
@@ -123,14 +117,14 @@ class Controller(Workspace):
         choosen_workspace_title[str]: reçoit le titre du workspace depuis une fonction de la classe View
         item.doc_id[int]: correspond à l'id d'un workspace par rapport à la boucle for qui parcours
         la base de donnée des workspaces
-        chd[exec]: se place dans le dossier d'un path
-        sys[exec]: ouvre le workspace dans vscode
+        os.chdir[exec]: se place dans le dossier d'un path
+        os.system[exec]: ouvre le workspace dans vscode
         """
         choosen_workspace_title = self.view.access_your_workspace()
         for item in workspaces_table:
             if choosen_workspace_title == str(item.doc_id):
-                chd("{}".format(item["Chemin"]))
-                sys("code {}".format(item["Workspace_name"]))
+                os.chdir("{}".format(item["Chemin"]))
+                os.system("code {}".format(item["Workspace_name"]))
         self.main_choice()
 
     def create_record_a_workspace(self):
@@ -150,8 +144,8 @@ class Controller(Workspace):
         the_record.record_workspace_path(workspaces_table)
         print("BDD à jour patientez pendant la création des dossiers")
         sl(3)
-        chd(rec[2])
-        mkd(rec[3])
+        os.chdir(rec[2])
+        os.mkdir(rec[3])
 
     # ! permet d'enregistrer un workspace dans la base de données (fonction première)
     def record_workspaces(self):
@@ -172,8 +166,8 @@ class Controller(Workspace):
         for truc in workspaces_table:
             if truc.doc_id == first_step[0]:
                 if first_step[1] == "Workspace_name":
-                    chd(truc["Chemin"])
-                    rnm(truc["Workspace_name"], first_step[2])
+                    os.chdir(truc["Chemin"])
+                    os.rename(truc["Workspace_name"], first_step[2])
         sl(2)
         workspaces_table.update({first_step[1]: first_step[2]}, doc_ids=[first_step[0]])
         print("Parait, le workspace à été mis à jour")
@@ -186,8 +180,8 @@ class Controller(Workspace):
         the_id = self.view.delete_workspace()
         for truc in workspaces_table:
             if truc.doc_id == int(the_id):
-                chd(truc["Chemin"])
-                rmd(truc["Workspace_name"])
+                os.chdir(truc["Chemin"])
+                os.rmdir(truc["Workspace_name"])
 
         workspaces_table.remove(doc_ids=[int(the_id)])
         print("Parait, le workspace à été supprimé")
@@ -197,7 +191,7 @@ class Controller(Workspace):
     # ! Permet d'exporter la base de données JSON sous format csv (fonction secondaire)
     def export_json_to_csv(self):
         """ """
-        cols = ["id", "Nom du Projet", "Technologies"]
+        cols = ["id", "Nom du Projet", "Technologies", "Etat"]
         data = []
         for item in workspaces_table:
             data.append(
@@ -205,14 +199,72 @@ class Controller(Workspace):
                     "id": item.doc_id,
                     "Nom du Projet": item["Projet"],
                     "Technologies": item["Technologies"],
+                    "Etat": item["Etat"],
                 }
             )
-        with open("workspaces.csv", "w") as f:
+        with open("python_local_json_API/app/data/workspaces.csv", "w") as f:
             wr = csv.DictWriter(f, fieldnames=cols, delimiter=";")
             wr.writeheader()
             wr.writerows(data)
 
+    def auto_search_and_record_new_folders(self):
+        """
+        Permet de créer automatiquement les dossiers dans le workspace
+        """
+        existing_workspace_table_items = []
+        existing_folders = []
+        count_new_added = 0
 
-# """ THE TRIGGER """
-# if __name__ == "__main__":
-#     Controller().main_choice()
+        # ! Récupération des chemins vers les dossiers existants
+        the_paths = [self.LEARNING_PATH, self.PROJECTS_PATH]
+
+        print("Mise à jour de la BDD veuillez patienter!")
+        sl(2)
+        # ! Récupération des noms de workspace existants dans la base de données
+        for item in workspaces_table:
+            existing_workspace_table_items.append(item["Workspace_name"])
+
+        for the_path in the_paths:
+            for item in os.listdir(the_path):
+                if the_path == self.LEARNING_PATH:
+                    if (
+                        str(item) not in existing_workspace_table_items
+                        and str(item) != "Open_Classrooms_Projects"
+                    ):
+                        new_workspace = Workspace(
+                            "Apprentissage",
+                            "unknown",
+                            the_path,
+                            str(item),
+                            str(item).replace("_", " "),
+                            "en suspens",
+                        )
+                        count_new_added += 1
+                        new_workspace.record_workspace_path(workspaces_table)
+                    else:
+                        pass
+                elif the_path == self.PROJECTS_PATH:
+                    if (
+                        str(item) not in existing_workspace_table_items
+                        and str(item) != "Open_Classrooms_Projects"
+                    ):
+                        new_workspace = Workspace(
+                            "Projets",
+                            "unknown",
+                            the_path,
+                            str(item),
+                            str(item).replace("_", " "),
+                            "en suspens",
+                        )
+                        count_new_added += 1
+                        new_workspace.record_workspace_path(workspaces_table)
+                    else:
+                        pass
+                else:
+                    print("Vous n'avez pas de nouveau dossier")
+        if count_new_added > 0:
+            print(f"{count_new_added} workspaces ont été ajoutés, BDD à jour")
+        else:
+            print("Il n'y a pas de nouveau workspace à ajouter, BDD à jour")
+        sl(3)
+        os.system("cls")
