@@ -1,24 +1,15 @@
 # Projet MyFML
-
 ## Les concepts expliqués
 [la classe tinydb](#la-classe-tinydb)
 
 ## Sommaire
 Chapitre 1 [L'idée](#l'idée)
->
 Chapitre 2 [Possibilités](#possibilités)
->
 Chapitre 3 [Améliorations possibles](#aller-plus-loin)
->
-Chapitre 4 [Le code](#le-code)
->
-Chapitre 5 [Documentation](#documentation-et-utilisation)
->
-chapitre 6 [Visualier les workspaces](#visualisation)
->
-chapitre 7 [Demo](#demo)
-
-
+Chapitre 4 [La structure](#la-structure)
+Chapitre 5 [Le code](#le-code)
+Chapitre 6 [Documentation](#documentation-et-utilisation)
+chapitre 7 [Visualier les workspaces](#visualisation)
 
 ---
 [top](#sommaire)
@@ -29,9 +20,9 @@ J'ai crée ce projet pour plusieurs raisons.
 - Lors de mes transferts de sauvegarde vers mes disques durs externes ou dans le cloud,
   comme mes support de destination contenaient d'autres dossiers non attenants aux fichiers
   à transférer, je devais donc parcourir plusieurs dossiers et cela pouvait certaines fois me
-  faire perdre la tête (je fais partie des personnes qui ont du mal à s'organiser).
+  faire perdre la tête.
 - Je suis en cours de formation professionnelle et personnelle, et de surcroit, dans le monde de la programmation.
-  Du coup, j'ai beaucoup de choses à revoir, travailler, présenter, chercher etc. et cela commençait à devenir un
+  Du coup, j'ai beaucoup de choses à revoir, travailler, présenter, chercher etc. et cela commence à devenir un
   casse tête pour ranger mes dossier de manière optimale.
 - Je dois réaliser plusieurs projets professionnels, m'entrainer selon ce que j'apprends, effectuer des actions
   chaque jours (sport, anglais, maths) et finalement m'auto former sur des tutoriels eux aussi classés.
@@ -40,9 +31,9 @@ Mon projet permet donc
 - d'ouvrir un workspace, directement dans mon éditeur de code VSCode.
 Cela m'évite de chercher le dossier cliquer droit dessus et ouvrir dans vscode
 - de bénéficier d'une structure facile d'accès et contenant tous les sous dossiers nécessaires à un classement le plus exhaustif possible.
-- de lancer le fichier html depuis l' éditeur de code s'il le permet afin d'avoir un visuel sur les projets en cours, en suspens, ou terminés. En revanche, le CRUD s'effectue côté Python, en  lançant python main.py.
+- de lancer le fichier html depuis l' éditeur de code s'il le permet afin d'avoir un visuel sur les projets en cours, en suspens, ou terminés. En revanche, le CRUD s'effectue côté console, en  lançant python main.py.
 
-Là où il est efficace, c'est que j'ai aussi des workspaces contenant des formations sous forme de projets à réaliser indépendamment de ceux de ma formation actuelle. J'ai aussi des projets personnels en cours dont celui-ci, pour lesquels j'ai aussi crée des workspaces. Tous ces workspaces sont situés dans des dossiers ou sous-dossiers différents. Je peux être amené à travailler sur 2 à trois projets différents par jour, selon mon emploi du temps. Ce qui peut au bout d'un certain temps et d'un certain nombre de workspaces, devenir un casse_tête.
+Là où ce projet est efficace, c'est que j'ai aussi des workspaces contenant des formations sous forme de projets à réaliser indépendamment de ceux de ma formation actuelle. J'ai aussi des projets personnels en cours dont celui-ci, pour lesquels j'ai aussi crée des workspaces. Tous ces workspaces sont situés dans des dossiers ou sous-dossiers différents. Je peux être amené à travailler sur 2 à trois projets différents par jour, selon mon emploi du temps. Ce qui peut au bout d'un certain temps et d'un certain nombre de workspaces, devenir un casse_tête en termes de recherches.
 
 Finalement tout cela, réduit considérablement mon stress lié à la recherche de dossiers dans tous les sens, me permet de sereinement et rapidement switcher d'un workspace à l'autre, et me libère d'une raison de procrastiner ou d' abandonner parmi tant d'autres.
 
@@ -56,6 +47,8 @@ Je pense que la V2 sera développée avec Django, cela permettrait plus de possi
 Enregistrer un nouveau chemin (path) de workspace dans une base de données et créer le dossier en même temps
 Accéder à un des multiples chemins de workspace enregistrés dans la base de données
 Ouvrir un workspace sélectionné dans une fenêtre vscode
+Les nouveaux dossiers crées manuellement dans les chemins Apprentissages ou Projets sont automatiquement ajoutés à la BDD
+au lancement du programme. <3
 
 ---
 [top](#sommaire)
@@ -64,61 +57,139 @@ Ouvrir un workspace sélectionné dans une fenêtre vscode
 
 Maintenant que ma structure MVC est faite, si je veux améliorer mon code, mes classes sont déjà faites, et le comportement restera toujours le même. Je vais pouvoir ajouter des classes, par exemple, ici, j'ai une classe workspaces
 qui permet d'ouvrir un dossier de travail dans vscode. 
-Je peux tout à fait ouvrir directement des dossiers dans windows, des fichiers word...
-Je n'ai pas à toucher à la base de données qui est déjà en place et je n'aurais pas à créer d'autres fichiers de scripts, tout sera contenu dans ces 3 fichiers.
-Je pourrais aussi créer un script qui fetch tous les dossiers au lancement de main.py afin d'enregister automatiquement les chemins et workspaces qui ne sont pas encore présent dans la base données.
+Je peux tout à fait ouvrir directement des dossiers dans windows, des fichiers md etc... avec ce programme.
+
+---
+[top](#sommaire)
+
+## La structure
+
+```json
+{ 
+    "MYFML_APP" : 
+    [
+        {
+            "assets": 
+            [
+                {
+                    "css": "main.css",
+                    "docs": "",
+                    "images": 
+                    [
+                        "choix.PNG", 
+                        "database.PNG",
+                        "..."
+                    ],
+                    "js": 
+                    [
+                        "main.js", 
+                        "md_files.js", 
+                        "workspace.js"
+                    ],
+                    "scss": "main.scss",
+                }
+            ],
+            "python_local_json_API": [
+                {
+                    "app": [
+                        {
+                            "controllers": "controller.py",
+                            "data": "workspaces.json",
+                            "models": 
+                            [
+                                "folderModel.py",
+                                "mdFileModel.py",
+                                "workspaceModel.py"
+                            ],
+                            "views": "mainView.py"
+
+                        }
+                    ] 
+                }
+            ]
+        }
+    ]
+}
+```
+
+**Fichier README.md**
+> Ce fichier correspond à celui que vous êtes en train de parcourir
+
+**Fichier main.py**
+> Ce fichier est lié au fichier controller.py situé dans 
+> "python_local_json_API/app/controllers". Cela est pratique car il nous permet de lancer le projet sans avoir à accéder à tous les fichiers de scripts. Du coup, pour lancer le projet, il suffit juste de taper dans la console "py main.py"
+
+**Fichier index.html**
+> Il s'agit du visuel des workspaces présents dans la BDD. Je l'ai laissé ici, car c'est plus pratique pour lancer ce fichier dans le navigateur avec "live server", sans être obligé de parcourir les dossiers. C'est beaucoup plus propre qu'une vue des workspaces dans un tableau Pandas ou Numpy.
+
+**Fichier fetch_workspace_data.js**
+> Ce fichier est un fichier JavaScript attenant au index.html. Ce fichier fait l'intermédiaire entre la base de données "workspaces.json" contenu dans "python_local_json_API/app/data" et le fichier "main.js" contenu dans "assets/js". J'ai mis ce fichier à la base du projet, car je rencontrais des problèmes pour récupérer des donnés de la bdd à partir du dossier assets/js. Du coup, main.js contient le squelette des actions qui seront faites sur les données récupérées, et le fichier fetch_workspaces_data.js se contente d'appliquer ces actions sur les données récupérées dans la BDD.
+
+**Dossier python_local_json_API**
+> Ce dossier contient le dossier "app", qui lui même contient la structure MVC du projet dans sa version Python:
+>> **Le dossier app contient:**
+>>> **Le dossier controllers**
+>>> Contient le fichier controller.py, qui lance le projet
+>>> **Le dossier data**
+>>> Contient le fichier workspaces.json => la database format JSON
+>>> **Le dossier models**
+>>> Contient les modèles d'un dossier, d'un fichier .md, d'un workspace
+>>> **Le dossier views**
+>>> Contient un fichier mainView.py qui controlle les affichages dans la console
+
+**Dossier assets**
+> Ce dossier contient les dossiers "css, docs, images, js, scss", qui contiennent toute la structure attenante au fichier index.html, et nécessaire à l'affichage des éléments de la base de données dans le navigateur.
 
 ---
 [top](#sommaire)
 
 ## Le code
 
-- **Tout d'abord, je crée les classes**
+**Dossier models**
 
 ```python
-    # fichier Model
+    # La classe Workspace du fichier workspaceModel.py
 
-    class Model:
-        '''
-        La classe Model aurait pu s'appeler autre chose, car elle correspond au concept 
-        que l'on va vouloir dupliquer pour lui attribuer des comportements et le montrer 
-        sous tous ses angles. Une classe de model est un prototype dont on va pouvoir 
-        créer plusieurs exemplaires. Le but dans un model c'est d'éviter de mettre 
-        trop de comportements, c'est pour cela que selon le concept du model, on voit 
-        les héritages, sous classes, extensions ... seules les classes model pourront
-        avoir un nom différent. Les classes Controller et View sont toujours uniques.
-        '''
-        def __init__(self, etats ...)
-            self.etat = etat
-            self ... = ...
-            pass
+    class Workspace:
+    """
+    La classe workspace, représente les informations définissant un workspace
+    """
 
-        def comportement(self):
-            comportements ...
+    ''' Un workspace possède :
+        category => une catégorie (apprentissages, projets)
+        technologies => les technologies utilisées (JavaScript, Python...)
+        path => le chemin de son dossier parent qui contient le workspace
+        ws => le nom de son dossier
+        pathname => son nom utilisé pour l'affichage
+        state = > son état (en cours, terminé, en suspens)
+    '''
+    def __init__(self, category, technologies, path, ws, pathname=None, state=None):
+        self.category = category
+        self.technologies = technologies
+        self.path = path
+        self.ws = ws
+        self.pathname = pathname
+        self.state = state
 
-    # fichier View
-
-    class View(object):
-        '''
-        La vue, elle à une particularité, car elle est directement liée au controller,
-        du fait que le controller va entreprendre des actions, comme,
-        aller chercher des informations dans la base de données ou créer une copie
-        du model afin de l'utiliser d'une manière spécifique, selon les interactions 
-        de l'utilisateur dans cette vue. Donc, controller correspond en réalité à
-        la classe Controller du fichier controller.py. Elle va pouvoir utiliser certaines 
-        méthodes du controller dans les siennes. La classe View s'appellera toujours View
-        '''
-        def __init__(self, controller)
-            self.controller = controller
-
-        def comportement(self):
-            comportements ...
+    def record_workspace_path(self, database_table):
+        database_table.insert(
+            {
+                "Projet": self.pathname,
+                "Categorie": self.category,
+                "Technologies": self.technologies,
+                "Chemin": self.path.replace("\\", "/"),
+                "Workspace_name": self.ws,
+                "Etat": self.state,
+            }
+        )
 ```
 
+**Dossier controllers**
+
 ``` python
-    # fichier controller
+    # La classe controller du fichier controller.py
     ''' 
-    On importe directement les classes View et Model on peut aussi importer une base de données
+    Dans le fichier controller.py, on importe directement les classes View et Model on peut aussi importer une base de données
     intallée au préalable avant. Selon la base de données utilisée, un dossier data contiendra 
     le résultat, soit dans un fichier JSON au autres ... Il est important de l'importer dans
     le fichier controller.py, car c'est le controller qui gérera toutes les interactions
@@ -131,12 +202,6 @@ Je pourrais aussi créer un script qui fetch tous les dossiers au lancement de m
     db = TinyDB("workspaces.json", sort_keys=True, indent=4, separators=(",", ": "))
     workspaces_table = db.table("workspaces")
     User = Query()
-
-    class Controller:
-        '''
-        docs
-        '''
-        def __init__(self)
 ```
 
 ---
@@ -190,7 +255,15 @@ from tinydb import TinyDB, Query # importation des modules de la librairie
 
 ## Documentation et utilisation
 
-> Lorsque vous arrivez au menu principal, vous avez plusieurs possibilités:
+Je viens de créer la dernière fonctionnalité pour cette version du projet
+
+**auto_search_and_record_new_folders**
+Cette nouvelle fonction au lancement de main.py, utilise un algorithme qui parcours 
+les dossiers Apprentissages et Projets à la recherche de workspaces ne figurant pas dans
+la base de données. Si un dossier entre dans ce critère, l'algorithme crée un workspace
+et toutes ses informations, à partir du nom du dossier concerné. <3 
+
+Lorsque vous arrivez au menu principal, vous avez plusieurs possibilités:
 
 **Accéder à un WorkSpace**
 Ce choix, vous affiche les espaces de travail existants. Chaque espace de travail possède
@@ -242,13 +315,13 @@ Ce choix peut être très utile pour faire des statistiques ou être renseigné 
 Je ne pense pas qu'il soit nécessaire de vous l'expliquer, quoique !!?... ;)
 
 ---
-
+[top](#sommaire)
 ## Visualisation
 
 Vous pouvez accéder à un rendu visuel de vos WorkSpaces via le navigateur internet.
 Dans votre editeur de texte, il vous suffit de cliquer sur l'index html, et l'ouvrir avec live server.
 Si vous n'avez pas l'option ouvrir avec live server, je vous laisse vous documenter selon l'éditeur de
-code que vous utilisez. Néanmoins, vous avez la possibité de simplement installer une extension si vous utilisez VS code. Je dis ça... ;) (précision => je déteste cette expression 🤮).
+code que vous utilisez. Néanmoins, vous avez la possibité de simplement installer une extension si vous utilisez VS code.
 
 ---
 
