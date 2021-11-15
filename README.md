@@ -3,7 +3,7 @@
 [la classe tinydb](#la-classe-tinydb)
 
 ## Sommaire
-=======
+
 Chapitre 1 [L'idée](#idée)
 >
 Chapitre 2 [Possibilités](#possibilités)
