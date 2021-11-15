@@ -3,18 +3,24 @@
 [la classe tinydb](#la-classe-tinydb)
 
 ## Sommaire
-Chapitre 1 [L'idée](#l'idée)
+Chapitre 1 [L'idée](#idée)
+>
 Chapitre 2 [Possibilités](#possibilités)
+>
 Chapitre 3 [Améliorations possibles](#aller-plus-loin)
+>
 Chapitre 4 [La structure](#la-structure)
+>
 Chapitre 5 [Le code](#le-code)
+>
 Chapitre 6 [Documentation](#documentation-et-utilisation)
+>
 chapitre 7 [Visualier les workspaces](#visualisation)
 
 ---
 [top](#sommaire)
 
-## L'idée
+## Idée
 
 J'ai crée ce projet pour plusieurs raisons.
 - Lors de mes transferts de sauvegarde vers mes disques durs externes ou dans le cloud,
@@ -324,7 +330,6 @@ Si vous n'avez pas l'option ouvrir avec live server, je vous laisse vous documen
 code que vous utilisez. Néanmoins, vous avez la possibité de simplement installer une extension si vous utilisez VS code.
 
 ---
-
 ## Demo
 
 **Make a choice**
