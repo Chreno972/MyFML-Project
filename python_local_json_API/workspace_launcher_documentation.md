@@ -4,11 +4,17 @@
 
 ## Sommaire
 Chapitre 1 [L'idée](#l'idée)
+>
 Chapitre 2 [Possibilités](#possibilités)
+>
 Chapitre 3 [Améliorations possibles](#aller-plus-loin)
+>
 Chapitre 4 [La structure](#la-structure)
+>
 Chapitre 5 [Le code](#le-code)
+>
 Chapitre 6 [Documentation](#documentation-et-utilisation)
+>
 chapitre 7 [Visualier les workspaces](#visualisation)
 
 ---
@@ -254,7 +260,8 @@ from tinydb import TinyDB, Query # importation des modules de la librairie
 [top](#sommaire)
 
 ## Documentation et utilisation
-> Je viens de créer la dernière fonctionnalité pour cette version du projet
+
+Je viens de créer la dernière fonctionnalité pour cette version du projet
 
 **auto_search_and_record_new_folders**
 Cette nouvelle fonction au lancement de main.py, utilise un algorithme qui parcours 
@@ -262,7 +269,7 @@ les dossiers Apprentissages et Projets à la recherche de workspaces ne figurant
 la base de données. Si un dossier entre dans ce critère, l'algorithme crée un workspace
 et toutes ses informations, à partir du nom du dossier concerné. <3 
 
-> Lorsque vous arrivez au menu principal, vous avez plusieurs possibilités:
+Lorsque vous arrivez au menu principal, vous avez plusieurs possibilités:
 
 **Accéder à un WorkSpace**
 Ce choix, vous affiche les espaces de travail existants. Chaque espace de travail possède
@@ -321,3 +328,18 @@ Vous pouvez accéder à un rendu visuel de vos WorkSpaces via le navigateur inte
 Dans votre editeur de texte, il vous suffit de cliquer sur l'index html, et l'ouvrir avec live server.
 Si vous n'avez pas l'option ouvrir avec live server, je vous laisse vous documenter selon l'éditeur de
 code que vous utilisez. Néanmoins, vous avez la possibité de simplement installer une extension si vous utilisez VS code.
+
+---
+## Demo
+
+**Make a choice**
+
+![choix](./asset)
+
+**Database JSON**
+
+![choix](./assets/images/database.PNG)
+
+**Display in Browser**
+
+![choix](./assets/images/version_html.PNG)
