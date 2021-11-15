@@ -1,8 +1,5 @@
 # Projet MyFML
 
-## Liens Web
-exporter un [JSON en CSV](https://www.journaldev.com/45372/json-to-csv-python)
-
 ## Les concepts expliqués
 [la classe tinydb](#la-classe-tinydb)
 
