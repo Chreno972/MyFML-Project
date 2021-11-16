@@ -125,6 +125,10 @@ class Controller(Workspace):
             if choosen_workspace_title == str(item.doc_id):
                 os.chdir("{}".format(item["Chemin"]))
                 os.system("code {}".format(item["Workspace_name"]))
+                if "Open_Classrooms_Projects" not in item["Chemin"]:
+                    os.chdir("../../MyFML_App")
+                else:
+                    os.chdir("../../../../MyFML_App")
         os.chdir("../../MyFML_App")
         self.main_choice()
 
@@ -210,28 +214,32 @@ class Controller(Workspace):
 
     def auto_search_and_record_new_folders(self):
         """
-        Permet de créer automatiquement les dossiers dans le workspace
+        Permet de créer automatiquement un workspace
+        pour chaque nouveau dossier non enregisté dans la base de données
         """
         existing_workspace_table_items = []
-        existing_folders = []
         count_new_added = 0
 
-        # ! Récupération des chemins vers les dossiers existants
+        # Récupération des chemins vers les dossiers existants
         the_paths = [self.LEARNING_PATH, self.PROJECTS_PATH]
 
         print("Mise à jour de la BDD veuillez patienter!")
         sl(2)
-        # ! Récupération des noms de workspace existants dans la base de données
+        # Prends chaque nom de workspace existant dans la base de données
         for item in workspaces_table:
+            # Et ajoute le dans la liste des items existants
             existing_workspace_table_items.append(item["Workspace_name"])
 
+        # Pour chaque chemin dans la liste des chemins
         for the_path in the_paths:
+            # trouve chaque dossier dans le chemin
             for item in os.listdir(the_path):
+                # Si le chemin du dossier est celui des apprentissages
                 if the_path == self.LEARNING_PATH:
-                    if (
-                        str(item) not in existing_workspace_table_items
-                        and str(item) != "Open_Classrooms_Projects"
-                    ):
+                    # Si le dossier n'est pas dans la liste des items existants
+                    # et qu'il est différent de "Open_Classrooms_Projects"
+                    if str(item) not in existing_workspace_table_items:
+                        # instancie un objet Workspace à partir du nom du dossier
                         new_workspace = Workspace(
                             "Apprentissage",
                             "unknown",
@@ -240,15 +248,15 @@ class Controller(Workspace):
                             str(item).replace("_", " "),
                             "en suspens",
                         )
+                        # Ajoute 1 à count_new_added pour compter le nombre de nouveaux dossiers
                         count_new_added += 1
+                        # Enregistre le nouveau workspace dans la base de données
                         new_workspace.record_workspace_path(workspaces_table)
                     else:
+                        # Si le dossier est dans la liste des items existants ne fais rien
                         pass
                 elif the_path == self.PROJECTS_PATH:
-                    if (
-                        str(item) not in existing_workspace_table_items
-                        and str(item) != "Open_Classrooms_Projects"
-                    ):
+                    if str(item) not in existing_workspace_table_items:
                         new_workspace = Workspace(
                             "Projets",
                             "unknown",
@@ -262,10 +270,48 @@ class Controller(Workspace):
                     else:
                         pass
                 else:
-                    print("Vous n'avez pas de nouveau dossier")
+                    pass
+
+        # Si le compte d'ajout est supérieur à 0
         if count_new_added > 0:
-            print(f"{count_new_added} workspaces ont été ajoutés, BDD à jour")
+            # Affiche le nombre de nouveaux workspaces ajoutés
+            print(f"{count_new_added} workspaces ont été ajoutés")
         else:
-            print("Il n'y a pas de nouveau workspace à ajouter, BDD à jour")
-        sl(3)
+            # Sinon affiche que rien n'a été ajouté
+            print("Il n'y a pas de nouveau workspace à ajouter")
+        sl(6)
+
+    def auto_erase_non_existing_folders(self):
+        """
+        Permet de supprimer automatiquement les workspaces de la bdd qui
+        n'appartiennent à aucun dossier
+        """
+        existing_workspace_table_items = []
+        existing_folders = []
+        count_erased = 0
+
+        # ! Récupération des chemins vers les dossiers existants
+        the_paths = [self.LEARNING_PATH, self.PROJECTS_PATH]
+
+        # Pour chacun des workspaces existants dans la base de données
+        for item in workspaces_table:
+            # Pour chacun des chemins existants dans la variable the_paths
+            for the_path in the_paths:
+                # Pour chacun des dossiers existants dans le chemin (the path)
+                for fold in os.listdir(the_path):
+                    # Si le nom du workspace dans la base de données est différent du nom du dossier
+                    if item["Workspace_name"] != fold:
+                        # on le supprime de la BDD par son id
+                        workspaces_table.remove(doc_ids=[item.doc_id])
+                        workspaces_table.all()
+                        count_erased += 1
+
+        # si le compte de suppression est supérieur à 0
+        if count_erased > 0:
+            # on affiche le nombre de workspaces supprimés
+            print(f"{count_erased} workspaces ont été supprimés, \nBDD à jour")
+        else:
+            # sinon on affiche que rien n'a été supprimé
+            print("Il n'y a pas de workspaces à supprimer, \nBDD à jour")
+        sl(6)
         os.system("cls")
