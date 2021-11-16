@@ -125,6 +125,7 @@ class Controller(Workspace):
             if choosen_workspace_title == str(item.doc_id):
                 os.chdir("{}".format(item["Chemin"]))
                 os.system("code {}".format(item["Workspace_name"]))
+        os.chdir("../../MyFML_App")
         self.main_choice()
 
     def create_record_a_workspace(self):
